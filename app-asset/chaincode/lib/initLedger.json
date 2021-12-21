@@ -1,0 +1,26 @@
+[
+    {   
+        "appName": "UberEats",
+        "developerName": "Uber Technologies, Inc.",
+        "version": "20.1.2",
+        "category": "Maps & Navigation",
+        "ratings": ["4.4", "4.7"],
+        "reviews": ["Affordable", "Convenient App"]
+    },
+    {   
+        "appName": "LinkedIn",
+        "developerName": "LinkedIn Technologies, Inc.",
+        "version": "28.1.2",
+        "category": "Business",
+        "ratings": ["4.9", "4.8"],
+        "reviews": ["Helpful", "Easy to use"]
+    },
+    {   
+        "appName": "Google Maps",
+        "developerName": "Google, Inc.",
+        "version": "23.12.1",
+        "category": "Maps & Navigation",
+        "ratings": ["4.1", "4.2"],
+        "reviews": ["Every day app", "Sometines not accurate"]
+    }
+]

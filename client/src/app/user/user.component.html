@@ -1,0 +1,25 @@
+<app-toolbar text="App Check">
+  <app-toolbar-button text="Refresh" icon="refresh" (click)="refresh()"></app-toolbar-button>
+</app-toolbar>
+<br><br><br>
+
+<div class="sidebar-layout-bottom-row p-3 container-fluid">
+  <div class="row">
+    <div class="offset-xl-3 col-xl-6 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <p>Enter Hash to check app</p>
+          <form #checkApp="ngForm" (ngSubmit)="save()" class="form-horizontal form-standard" [formGroup]="form">
+            <fieldset class="mb-3">
+              <div class="form-group">
+                <label for="hash">hash</label>
+                <input type="text" class="form-control" name="hash" formControlName="hash"
+                  placeholder="Enter hash">
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

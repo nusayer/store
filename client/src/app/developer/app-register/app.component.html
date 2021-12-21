@@ -1,0 +1,57 @@
+<app-toolbar [text]="title">
+  <app-toolbar-button text="Refresh" icon="refresh" (click)="refresh()"></app-toolbar-button>
+</app-toolbar>
+<br><br><br>
+
+<div class="sidebar-layout-bottom-row p-3 container-fluid">
+  <div class="row">
+    <div class="offset-xl-3 col-xl-6 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <p>Please fill out the App details. All fields are required.</p>
+          <form #registerDeveloper="ngForm" (ngSubmit)="save()" class="form-horizontal form-standard" [formGroup]="form">
+            <fieldset class="mb-3">
+              <ng-container *ngIf="isDeveloper() || isNew()">
+                <div class="form-group">
+                  <label for="hash">Hash</label>
+                  <input type="text" class="form-control" name="hash" formControlName="hash"
+                    placeholder="Enter hash">
+                </div>
+                <div class="form-group">
+                  <label for="appName">App Name</label>
+                  <input type="text" class="form-control" name="appName" formControlName="appName"
+                    placeholder="Enter app name">
+                </div>
+                <div class="form-group">
+                  <label for="developerNamer">Developer Name</label>
+                  <textarea class="form-control" name="developerName" formControlName="developerName"
+                    placeholder="Enter developer name"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="version">Version</label>
+                  <textarea class="form-control" name="version" formControlName="version"
+                    placeholder="Enter version number"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <textarea class="form-control" name="category" formControlName="category"
+                    placeholder="Enter category"></textarea>
+                </div>
+              </ng-container>
+              <div class="form-group form-buttons">
+                <button class="btn btn-primary mr-2" type="submit" [disabled]="registerApp.invalid">Save</button>
+                  <a [routerLink]="[isNew() ? '/admin/' + getAdminUsername() : '/Developer/' + DeveloperId]"
+                    class="btn btn-secondary">
+                    Cancel
+                  </a>
+                  <button *ngIf="newDeveloperData" class="btn btn-secondary" type="button" (click)="reset()">OK</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,17 @@
+/channel-artifacts/*.tx
+/channel-artifacts/*.block
+/ledgers
+/ledgers-backup
+/channel-artifacts/*.json
+/org3-artifacts/crypto-config/*
+organizations/ordererOrganizations/*
+organizations/peerOrganizations/*
+system-genesis-block/*
+*.tar.gz
+log.txt
+addStore3/fabric-ca/store3/msp
+addStore3/fabric-ca/store3/ca-cert.pem
+addStore3/fabric-ca/store3/fabric-ca-server.db
+addStore3/fabric-ca/store3/IssuerPublicKey
+addStore3/fabric-ca/store3/IssuerRevocationPublicKey
+addStore3/fabric-ca/store3/tls-cert.pem

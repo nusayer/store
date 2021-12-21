@@ -1,0 +1,32 @@
+version: '2'
+
+networks:
+  store:
+
+services:
+  redis1:
+    image: 'redis:latest'
+    container_name: redis.store1.nusayer.com
+    command: redis-server --requirepass store1nusayer
+    ports:
+      - "6379:6379"
+    networks:
+      - store
+
+  redis2:
+    image: 'redis:latest'
+    container_name: redis.store2.nusayer.com
+    command: redis-server --requirepass store2nusayer
+    ports:
+      - "6380:6379"
+    networks:
+      - store
+
+  redis3:
+    image: 'redis:latest'
+    container_name: redis.store3.nusayer.com
+    command: redis-server --requirepass store3nusayer
+    ports:
+      - "6381:6379"
+    networks:
+      - store

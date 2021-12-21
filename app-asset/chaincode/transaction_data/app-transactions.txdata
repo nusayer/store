@@ -1,0 +1,44 @@
+[
+    {
+        "transactionName": "appExists",
+        "transactionLabel": "A test appExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "createapp",
+        "transactionLabel": "A test createapp transaction",
+        "arguments": [
+            "001",
+            "some value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "readapp",
+        "transactionLabel": "A test readapp transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "updateapp",
+        "transactionLabel": "A test updateapp transaction",
+        "arguments": [
+            "001",
+            "some other value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "deleteapp",
+        "transactionLabel": "A test deleteapp transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    }
+]

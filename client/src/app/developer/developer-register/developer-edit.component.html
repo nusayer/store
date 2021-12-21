@@ -1,0 +1,72 @@
+<app-toolbar [text]="title">
+  <app-toolbar-button text="Refresh" icon="refresh" (click)="refresh()"></app-toolbar-button>
+</app-toolbar>
+<br><br><br>
+
+<div class="sidebar-layout-bottom-row p-3 container-fluid">
+  <div class="row">
+    <div class="offset-xl-3 col-xl-6 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <p>Please fill out Developer details. All fields are required.</p>
+          <form #registerDeveloper="ngForm" (ngSubmit)="save()" class="form-horizontal form-standard" [formGroup]="form">
+            <fieldset class="mb-3">
+              <ng-container *ngIf="isDeveloper() || isNew()">
+                <div class="form-group">
+                  <label for="Name">Name</label>
+                  <input type="text" class="form-control" name="Name" formControlName="Name"
+                    placeholder="Enter your name.">
+                </div>
+                <div class="form-group">
+                  <label for="Email">Email</label>
+                  <textarea class="form-control" name="Email" formControlName="Email"
+                    placeholder="Enter your Email."></textarea>
+                </div>
+              </ng-container>
+              <div *ngIf="newDeveloperData">
+                <p class="alert alert-success">New Developer's credentials: {{newDeveloperData.id}} - {{newDeveloperData.password}}</p>
+              </div>
+              <div class="form-group form-buttons">
+                <ng-container *ngIf="!newDeveloperData">
+                  <button class="btn btn-primary mr-2" type="submit" [disabled]="registerDeveloper.invalid">Save</button>
+                  <a [routerLink]="[isNew() ? '/admin/' + getAdminUsername() : '/Developer/' + DeveloperId]"
+                    class="btn btn-secondary">
+                    Cancel
+                  </a>
+                </ng-container>
+                  <button *ngIf="newDeveloperData" class="btn btn-secondary" type="button" (click)="reset()">OK</button>
+              </div>
+              <div *ngIf="error">
+                <p class="alert alert-danger">{{error.message}}</p>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #successfulRegistration let-close="close" let-dismiss="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <i class="fa fa-university mr-2"></i>New Developer's user id and password
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss('Cross click')">
+      <span aria-hidden="true">x</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Enter password for authentication</p>
+    <!--<div class="form-group">
+      <input type="password" name="password" class="form-control rounded-1" required
+             [(ngModel)]="pwd">
+    </div>-->
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="DeveloperPwd" class="btn btn-danger" (click)="close('Confirm password')">
+      Confirm Password
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="dismiss('Cancel click')">Cancel</button>
+  </div>
+</ng-template>

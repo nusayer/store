@@ -1,0 +1,53 @@
+<app-toolbar text="Create User">
+  <app-toolbar-button text="Refresh" icon="refresh" (click)="refresh()"></app-toolbar-button>
+</app-toolbar>
+<br><br><br>
+
+<div class="sidebar-layout-bottom-row p-3 container-fluid">
+  <div class="row">
+    <div class="offset-xl-3 col-xl-6 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <p>Please fill out user details. All fields are required.</p>
+          <form #registerUser="ngForm" (ngSubmit)="save()" class="form-horizontal form-standard" [formGroup]="form">
+            <fieldset class="mb-3">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="firstName" formControlName="firstName"
+                  placeholder="Enter you name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="firstName" formControlName="lastName"
+                  placeholder="Enter your email">
+              </div>
+              <div class="form-group">
+                <label for="store">Store</label>
+                <ng-select name="storeId" formControlName="storeId" [items]="storeList" bindLabel="name"
+                  bindValue="id" placeholder="Select store you belong.">
+                </ng-select>
+              </div>
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" formControlName="username"
+                       placeholder="Enter User's username.">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" formControlName="password"
+                       placeholder="Enter User's password.">
+              </div>
+              <div *ngIf="error">
+                <p class="alert alert-danger">{{error.message}}</p>
+              </div>
+              <div class="form-group form-buttons">
+                <button class="btn btn-primary mr-2" type="submit" [disabled]="registerUser.invalid">Save</button>
+                <a [routerLink]="['/', 'admin', this.getAdminUsername()]" class="btn btn-secondary">Cancel</a>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
